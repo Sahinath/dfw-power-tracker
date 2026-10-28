@@ -199,14 +199,14 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 
   <section class="ercot" aria-labelledby="e-h">
     <div class="text">
-      <h2 id="e-h">Demand requests now rival new supply in Texas</h2>
-      <p>Big users have asked the Texas grid for <b class="num">410 GW</b>. About <b>87%</b> are data centers (ERCOT, March 2026). New power plants in line add up to <b class="num">453.6 GW</b>, mostly batteries and solar.</p>
-      <p>ERCOT now studies these requests in batches, about every six months. Before, each new request could send earlier projects back to the start.</p>
-      <p class="small muted">Many requests will never be built.</p>
+      <h2 id="e-h">Texas paused new data center hookups</h2>
+      <p>On August 3, 2026, Gov. Abbott paused grid approvals for data centers until the state audits every request. ERCOT also delayed its first batch study.</p>
+      <p>Requests keep piling up. Big users have asked for <b class="num">474 GW</b>, and about <b>90%</b> are data centers. New power plants in line add up to <b class="num">453.6 GW</b>, mostly batteries and solar.</p>
+      <p class="small muted">Many requests will never be built. While hookups wait, more sites plan to make their own power. <a href="https://www.nbcdfw.com/news/local/texas-news/data-center-approvals-in-texas-halted-until-audits-completed-gov-greg-abbott-says/4058445/" target="_blank" rel="noopener">Read about the pause ↗</a></p>
     </div>
     <div>
       <div class="bars" id="bars"></div>
-      <p class="small muted" style="margin-top:10px">GW requested. Loads as of Mar 26, 2026; generation by fuel as of Feb 28, 2026. Source: ERCOT, Large Load Update, April 2026.</p>
+      <p class="small muted" style="margin-top:10px">GW requested. Big loads: governor's directive, Aug 2026. Power plants by fuel: ERCOT, Feb 28, 2026.</p>
     </div>
   </section>
 
@@ -218,7 +218,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
     <div class="questions">
       <div class="q"><h3>Utilities</h3><p>Five sites sit in a ten-mile band south of Dallas: Lancaster, Wilmer and Red Oak. What gets built first there, substations or lines?</p></div>
       <div class="q"><h3>Power companies</h3><p>A Hill County data center wants its own gas turbines and won't sell to the grid. A new grid plant is filed in the same county. Who buys power, and who makes their own?</p></div>
-      <div class="q"><h3>Data center builders</h3><p>ERCOT now studies requests every six months. Does time to power now decide where sites go?</p></div>
+      <div class="q"><h3>Data center builders</h3><p>Grid hookups are paused for an audit. How many sites will make their own power instead?</p></div>
       <div class="q"><h3>Engineering firms</h3><p>One Wilmer filing covers 891 backup generators in an area with strict air rules. How much time do permits and generators add?</p></div>
     </div>
   </section>
@@ -229,6 +229,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
       <ul>
         <li><b>Texas Comptroller</b>: the state's tax-break list for data centers. Names the owner, tenant and operator. <a href="https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php" target="_blank" rel="noopener">Open list</a></li>
         <li><b>TCEQ</b>: pending air permits for generators and turbines, with address and equipment. <a href="https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/nsr-pending-permits.html" target="_blank" rel="noopener">Open list</a></li>
+        <li><b>Hookup pause</b>: Gov. Abbott's directive, August 3, 2026. <a href="https://www.foley.com/insights/publications/2026/08/governor-abbott-pauses-texas-data-center-interconnections-and-calls-for-verification-and-audit-what-data-center-developers-need-to-know-now/" target="_blank" rel="noopener">Summary</a></li>
         <li><b>ERCOT</b>: Large Load Update, April 2026. <a href="https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf" target="_blank" rel="noopener">Open PDF</a></li>
         <li><b>Map</b>: © OpenStreetMap contributors.</li>
       </ul>
@@ -280,7 +281,7 @@ const TCEQ = "https://www.tceq.texas.gov/assets/public/permitting/air/reports/ap
 let SITES = [];
 
 const ERCOT = [
-  { k: "Large loads requesting connection", v: 410, cls: "load" },
+  { k: "Big loads asking to connect", v: 474, cls: "load" },
   { k: "Generation queue, total", v: 453.6, cls: "total" },
   { k: "Energy storage", v: 177.6 },
   { k: "Solar", v: 162.9 },
@@ -291,7 +292,7 @@ const ERCOT = [
 const fmtDate = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v.slice(4, -1)).trim();
-const ERCOT_PDF = "https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf";
+const PAUSE_URL = "https://www.nbcdfw.com/news/local/texas-news/data-center-approvals-in-texas-halted-until-audits-completed-gov-greg-abbott-says/4058445/";
 const summaryUrl = s => `https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/${s.permit}-pls-english.pdf`;
 
 // The filings behind a site: the TCEQ summary and full application, or the Comptroller list
@@ -311,7 +312,7 @@ function drawStats() {
   const south = SITES.filter(s => ["Lancaster", "Wilmer", "Red Oak"].includes(s.city)).length;
   const longhorn = SITES.find(s => s.permit === "184454");
   const items = [
-    ["410<small>GW</small>", "<b>Asked of the Texas grid</b> by big users. About 87% are data centers.", ERCOT_PDF],
+    ["474<small>GW</small>", "<b>Asked of the Texas grid</b> by big users. About 90% are data centers. Approvals paused since Aug 2026.", PAUSE_URL],
     [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Local sites list a cloud or AI tenant</b> on the state tax list.", COMPTROLLER],
     [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Backup power filed in Wilmer</b>: 891 generators of 3 MW each.", longhorn ? summaryUrl(longhorn) : TCEQ],
     [`${south}<small>sites</small>`, "<b>Sites south of Dallas</b>: Lancaster, Wilmer and Red Oak.", null]

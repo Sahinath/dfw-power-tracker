@@ -1,12 +1,14 @@
 # DFW Power Tracker
 
+Live site: https://dfw-power-tracker.netlify.app/
+
 A public register of data center sites and on-site power filings around Dallas–Fort Worth, built from Texas Comptroller, TCEQ and ERCOT records. By Sahinath Saminadane, M.S. Energy Management, UT Dallas.
 
 ## How it is kept up to date
 
 1. On the 1st of each month, the **Monthly update** workflow downloads the TCEQ pending air permit list and the Comptroller's qualifying data center lists, reads the plain-language summary of each new permit, and opens a pull request listing new entries that look relevant (`review/candidates.md`).
 2. A person reviews that list and adds the entries that belong to `site/data/sites.json`, with `added` set to the update date.
-3. Merging the pull request publishes the site through the **Publish site** workflow. Entries with the latest `added` date appear under "New since the last update".
+3. Merging the pull request publishes the site on Netlify (and on GitHub Pages through the **Publish site** workflow). Entries with the latest `added` date appear under "New since the last update".
 
 The workflow can also be started by hand from the Actions tab (**Run workflow**).
 

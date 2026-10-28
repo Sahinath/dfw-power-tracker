@@ -118,6 +118,9 @@ td.date span { display: block; font-size: .78rem; color: var(--muted); }
 .tag { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 .tag i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
 .approx { font-size: .75rem; color: var(--muted); border: 1px dashed var(--rule); padding: 0 6px; border-radius: 4px; margin-left: 6px; white-space: nowrap; }
+td.links { white-space: nowrap; font-size: .82rem; }
+td.links a, td.links button { display: block; margin-bottom: 4px; }
+.stat p a { font-size: .82rem; white-space: nowrap; }
 td button.locate { font: 500 .8rem var(--font); background: none; border: 0; color: var(--cloud); cursor: pointer; padding: 0; text-decoration: underline; }
 
 /* ERCOT */
@@ -155,9 +158,9 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 <body>
 <div class="wrap">
   <header>
-    <span class="kicker">Dallas–Fort Worth · ERCOT region</span>
-    <h1>DFW Power Tracker</h1>
-    <p class="lede">Where data centers are landing around Dallas–Fort Worth, who occupies them, and which ones are asking the state to run their own generators. Built from Texas Comptroller, TCEQ and ERCOT public records.</p>
+    <span class="kicker">DFW Power Tracker · Dallas–Fort Worth, ERCOT region</span>
+    <h1 id="thesis">22 DFW data centers list a cloud or AI tenant. A new campus near Wilmer has filed for 891 backup generators.</h1>
+    <p class="lede">Where data centers are landing around Dallas–Fort Worth, who occupies them, and which ones are asking the state to run their own generators. Every site links to the public filing it comes from.</p>
     <div class="meta">
       <span>Updated <b id="updated">Oct 28, 2026</b></span>
       <span>By <b>Sahinath Saminadane</b></span>
@@ -188,7 +191,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
     <div class="toolbar" id="filters"></div>
     <div class="tablebox">
       <table>
-        <thead><tr><th>Site</th><th>Category</th><th>Tenant or applicant</th><th>Date</th><th></th></tr></thead>
+        <thead><tr><th>Site</th><th>Category</th><th>Tenant or applicant</th><th>Date</th><th>Filing</th></tr></thead>
         <tbody id="rows"></tbody>
       </table>
     </div>
@@ -235,6 +238,8 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
       <ul>
         <li><b>City from the name.</b> The Comptroller list gives no address, so those sites are placed at the city in their name.</li>
         <li><b>Effective date</b> is when a site's tax certification took effect, not when it was built or energized.</li>
+        <li><b>Tenants are as filed.</b> Occupant names come from the Comptroller list and can differ from press reports. The two Red Oak sites list Microsoft as occupant, while Google has <a href="https://baxtel.com/news/4049" target="_blank" rel="noopener">announced</a> its own campus in Red Oak.</li>
+        <li><b>Firms in the file</b> are consultants and law firms whose correspondence appears in a TCEQ application. Their exact role is not stated.</li>
         <li><b>Permits by rule</b> and some standard permits are not on the TCEQ pending list, so smaller on-site generation can be missing.</li>
         <li><b>No MW per site.</b> ERCOT does not publish project-level large-load data. Generator counts describe backup capacity, not IT load.</li>
       </ul>
@@ -286,19 +291,35 @@ const ERCOT = [
 const fmtDate = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v.slice(4, -1)).trim();
+const ERCOT_PDF = "https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf";
+const summaryUrl = s => `https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/${s.permit}-pls-english.pdf`;
+
+// The filings behind a site: the TCEQ summary and full application, or the Comptroller list
+function filingLinks(s) {
+  if (s.src !== "tceq") return [["State list", COMPTROLLER]];
+  const links = [];
+  if (s.permit) links.push(["Permit summary", summaryUrl(s)]);
+  if (s.doc) links.push(["Full application", s.doc]);
+  return links.length ? links : [["TCEQ list", TCEQ]];
+}
+const linkHtml = ([label, url]) => `<a href="${url}" target="_blank" rel="noopener">${label} ↗</a>`;
 
 /* key numbers, computed from the register */
 function drawStats() {
   const certified = SITES.filter(s => s.src === "comptroller");
   const cloud = certified.filter(s => s.type === "cloud");
   const south = SITES.filter(s => ["Lancaster", "Wilmer", "Red Oak"].includes(s.city)).length;
+  const longhorn = SITES.find(s => s.permit === "184454");
   const items = [
-    ["410<small>GW</small>", "<b>Large-load requests in ERCOT</b>, about 87% data centers, March 2026."],
-    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Certified sites in the region name a cloud or AI tenant</b> on the state list."],
-    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Standby generation filed for Project Longhorn</b> in Wilmer: 891 units of 3,000 kW."],
-    [`${south}<small>sites</small>`, "<b>Clustered south of Dallas</b>, in Lancaster, Wilmer and Red Oak."]
+    ["410<small>GW</small>", "<b>Large-load requests in ERCOT</b>, about 87% data centers, March 2026.", ERCOT_PDF],
+    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Certified sites in the region name a cloud or AI tenant</b> on the state list.", COMPTROLLER],
+    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Standby generation filed for Project Longhorn</b> in Wilmer: 891 units of 3,000 kW.", longhorn ? summaryUrl(longhorn) : TCEQ],
+    [`${south}<small>sites</small>`, "<b>Clustered south of Dallas</b>, in Lancaster, Wilmer and Red Oak.", null]
   ];
-  document.getElementById("stats").innerHTML = items.map(([n, t]) => `<div class="stat"><div class="n">${n}</div><p>${t}</p></div>`).join("");
+  document.getElementById("stats").innerHTML = items.map(([n, t, url]) =>
+    `<div class="stat"><div class="n">${n}</div><p>${t}${url ? ` <a href="${url}" target="_blank" rel="noopener">Filing ↗</a>` : ""}</p></div>`).join("");
+  document.getElementById("thesis").textContent =
+    `${cloud.length} DFW data centers list a cloud or AI tenant. A new campus near Wilmer has filed for 891 backup generators.`;
 }
 
 /* sites added in the latest update; hidden on the first edition, when everything is new */
@@ -337,14 +358,14 @@ function sitePosition(s, i, group) {
 function popupHtml(s) {
   const where = s.address || (s.city ? `${s.city} (city named in filing)` : "DFW, city not stated");
   const gq = encodeURIComponent(s.address || `${s.city}, Texas`);
-  const src = s.src === "tceq" ? TCEQ : COMPTROLLER;
   const dateLabel = s.src === "tceq" ? "Permit application received" : "Tax certification effective";
   return `<b>${esc(s.name)}</b>
     <span class="pop-meta">${esc(s.tenant)} · ${esc(TYPES[s.type].label)}</span>
     <span class="pop-meta">${esc(where)}</span>
     <span class="pop-meta">${dateLabel}: ${fmtDate(s.date)}</span>
     ${s.note ? `<span class="pop-meta">${esc(s.note)}</span>` : ""}
-    <span class="pop-links"><a href="${src}" target="_blank" rel="noopener">Source</a><a href="https://www.google.com/maps/search/?api=1&query=${gq}" target="_blank" rel="noopener">Open in Google Maps</a></span>`;
+    ${s.firms ? `<span class="pop-meta">Firms in the file: ${esc(s.firms.join(", "))}</span>` : ""}
+    <span class="pop-links">${filingLinks(s).map(linkHtml).join("")}<a href="https://www.google.com/maps/search/?api=1&query=${gq}" target="_blank" rel="noopener">Google Maps ↗</a></span>`;
 }
 
 function initMap() {
@@ -417,11 +438,11 @@ function drawRows(scroll) {
       : "DFW, city not stated";
     const onMap = markers.has(s.name);
     return `<tr data-name="${esc(s.name)}" class="${state.selected === s.name ? "hl" : ""}">
-      <td class="site">${esc(s.name)}<span>${place}</span>${s.note ? `<span>${esc(s.note)}</span>` : ""}</td>
+      <td class="site">${esc(s.name)}<span>${place}</span>${s.note ? `<span>${esc(s.note)}</span>` : ""}${s.firms ? `<span>Firms in the file: ${esc(s.firms.join(", "))}</span>` : ""}</td>
       <td><span class="tag"><i style="background:${TYPES[s.type].color}"></i>${TYPES[s.type].label}</span></td>
       <td>${esc(s.tenant)}</td>
       <td class="date">${fmtDate(s.date)}<span>${s.src === "tceq" ? "Permit filed" : "Certified"}</span></td>
-      <td>${onMap ? `<button class="locate" type="button" data-name="${esc(s.name)}">Show on map</button>` : ""}</td></tr>`;
+      <td class="links">${filingLinks(s).map(linkHtml).join("")}${onMap ? `<button class="locate" type="button" data-name="${esc(s.name)}">Show on map</button>` : ""}</td></tr>`;
   }).join("");
   document.querySelectorAll("button.locate").forEach(b => b.addEventListener("click", () => {
     const hit = markers.get(b.dataset.name);

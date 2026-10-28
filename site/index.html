@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>DFW Power Tracker</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Public filings on data centers and on-site power around Dallas-Fort Worth, compiled monthly by Sahinath Saminadane.">
@@ -39,7 +44,9 @@
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body {
+  margin: 0;
   background: var(--paper); color: var(--ink); font: 400 16px/1.6 var(--font);
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
@@ -144,7 +151,8 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 .about p { color: var(--muted); }
 .about p b { color: var(--ink); }
 </style>
-
+</head>
+<body>
 <div class="wrap">
   <header>
     <span class="kicker">Dallas–Fort Worth · ERCOT region</span>
@@ -455,3 +463,5 @@ start();
 matchMedia("(prefers-color-scheme: dark)").addEventListener("change", restyleMarkers);
 new MutationObserver(restyleMarkers).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 </script>
+</body>
+</html>

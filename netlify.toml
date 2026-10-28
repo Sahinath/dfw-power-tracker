@@ -1,0 +1,6 @@
+# Netlify serves the site/ folder as-is; there is no build step.
+[build]
+  publish = "site"
+  command = ""
+
+# The monthly review files and scripts live outside site/, so they are never published.

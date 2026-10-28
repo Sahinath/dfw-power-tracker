@@ -159,8 +159,8 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 <div class="wrap">
   <header>
     <span class="kicker">DFW Power Tracker · Dallas–Fort Worth, ERCOT region</span>
-    <h1 id="thesis">22 DFW data centers list a cloud or AI tenant. A new campus near Wilmer has filed for 891 backup generators.</h1>
-    <p class="lede">Where data centers are landing around Dallas–Fort Worth, who occupies them, and which ones are asking the state to run their own generators. Every site links to the public filing it comes from.</p>
+    <h1 id="thesis">22 DFW data centers list a cloud or AI tenant. A new campus near Wilmer filed for 891 backup generators.</h1>
+    <p class="lede">Where data centers are coming to Dallas, who is behind them, and who plans to make their own power. Every site links to its public record.</p>
     <div class="meta">
       <span>Updated <b id="updated">Oct 28, 2026</b></span>
       <span>By <b>Sahinath Saminadane</b></span>
@@ -178,7 +178,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
   <section aria-labelledby="map-h">
     <div class="head">
       <h2 id="map-h">Sites on the map</h2>
-      <p class="muted">Solid dots have a street address in the filing. Dashed rings mark sites placed at the city named in the filing, so the exact parcel is unknown.</p>
+      <p class="muted">Solid dots: exact address. Dashed rings: city only.</p>
     </div>
     <div class="mapbox">
       <div id="map" role="region" aria-label="Map of data center sites around Dallas-Fort Worth"></div>
@@ -187,7 +187,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
   </section>
 
   <section aria-labelledby="reg-h">
-    <div class="head"><h2 id="reg-h">Site register</h2></div>
+    <div class="head"><h2 id="reg-h">All sites</h2></div>
     <div class="toolbar" id="filters"></div>
     <div class="tablebox">
       <table>
@@ -199,10 +199,10 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 
   <section class="ercot" aria-labelledby="e-h">
     <div class="text">
-      <h2 id="e-h">ERCOT's load queue now rivals its generation queue</h2>
-      <p>ERCOT reported about <b class="num">410 GW</b> of large loads asking to connect as of March 26, 2026, and said roughly <b>87%</b> of them are data centers. The generation interconnection queue stood at <b class="num">453.6 GW</b> on February 28, mostly batteries and solar.</p>
-      <p>ERCOT is moving large-load studies to a batch process. Requests are grouped and studied together about every six months, and the capacity each study allocates is reserved. Under the old one-at-a-time process, a new request in the same transmission zone could send earlier projects back into study.</p>
-      <p class="small muted">A request is not a commitment. Many large-load requests are speculative and will not be built.</p>
+      <h2 id="e-h">Demand requests now rival new supply in Texas</h2>
+      <p>Big users have asked the Texas grid for <b class="num">410 GW</b>. About <b>87%</b> are data centers (ERCOT, March 2026). New power plants in line add up to <b class="num">453.6 GW</b>, mostly batteries and solar.</p>
+      <p>ERCOT now studies these requests in batches, about every six months. Before, each new request could send earlier projects back to the start.</p>
+      <p class="small muted">Many requests will never be built.</p>
     </div>
     <div>
       <div class="bars" id="bars"></div>
@@ -212,14 +212,14 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 
   <section aria-labelledby="q-h">
     <div class="head">
-      <h2 id="q-h">Questions I am following</h2>
-      <p class="muted">What the filings raise for each part of the industry. These are open questions, not conclusions.</p>
+      <h2 id="q-h">Questions I'm following</h2>
+      <p class="muted">Open questions, not answers.</p>
     </div>
     <div class="questions">
-      <div class="q"><h3>Wires utilities</h3><p>Five mapped sites sit in a band about ten miles wide south of Dallas, in Lancaster, Wilmer and Red Oak. How will substation and transmission work be sequenced along that corridor?</p></div>
-      <div class="q"><h3>Generators and retailers</h3><p>A Hill County data center is applying for its own gas turbines and says it will not sell power to the grid. A combined-cycle plant for the grid is filed in the same county. Which loads will buy firm supply, and which will self-supply?</p></div>
-      <div class="q"><h3>Data center developers</h3><p>With six-month batch studies, the batch a request enters shapes its energization date. How much does time-to-power now drive site choice in DFW?</p></div>
-      <div class="q"><h3>Engineering and construction</h3><p>One Wilmer application covers 891 standby generators in the DFW ozone nonattainment area. How much do air permitting and generator supply add to the schedule of a large campus?</p></div>
+      <div class="q"><h3>Utilities</h3><p>Five sites sit in a ten-mile band south of Dallas: Lancaster, Wilmer and Red Oak. What gets built first there, substations or lines?</p></div>
+      <div class="q"><h3>Power companies</h3><p>A Hill County data center wants its own gas turbines and won't sell to the grid. A new grid plant is filed in the same county. Who buys power, and who makes their own?</p></div>
+      <div class="q"><h3>Data center builders</h3><p>ERCOT now studies requests every six months. Does time to power now decide where sites go?</p></div>
+      <div class="q"><h3>Engineering firms</h3><p>One Wilmer filing covers 891 backup generators in an area with strict air rules. How much time do permits and generators add?</p></div>
     </div>
   </section>
 
@@ -227,29 +227,29 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
     <div>
       <h3>Sources</h3>
       <ul>
-        <li><b>Texas Comptroller</b>, registered Qualifying Data Centers and Large Data Center Projects: site name, effective date, owner, occupant, operator. <a href="https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php" target="_blank" rel="noopener">Open list</a></li>
-        <li><b>TCEQ</b>, pending New Source Review air permit applications and their plain-language summaries: address, county, equipment. <a href="https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/nsr-pending-permits.html" target="_blank" rel="noopener">Open list</a></li>
-        <li><b>ERCOT</b>, Large Load Update, April 2026. <a href="https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf" target="_blank" rel="noopener">Open PDF</a></li>
-        <li><b>Map</b>: © OpenStreetMap contributors. Addresses located with OpenStreetMap Nominatim.</li>
+        <li><b>Texas Comptroller</b>: the state's tax-break list for data centers. Names the owner, tenant and operator. <a href="https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php" target="_blank" rel="noopener">Open list</a></li>
+        <li><b>TCEQ</b>: pending air permits for generators and turbines, with address and equipment. <a href="https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/nsr-pending-permits.html" target="_blank" rel="noopener">Open list</a></li>
+        <li><b>ERCOT</b>: Large Load Update, April 2026. <a href="https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf" target="_blank" rel="noopener">Open PDF</a></li>
+        <li><b>Map</b>: © OpenStreetMap contributors.</li>
       </ul>
     </div>
     <div>
       <h3>Limits</h3>
       <ul>
-        <li><b>City from the name.</b> The Comptroller list gives no address, so those sites are placed at the city in their name.</li>
-        <li><b>Effective date</b> is when a site's tax certification took effect, not when it was built or energized.</li>
-        <li><b>Tenants are as filed.</b> Occupant names come from the Comptroller list and can differ from press reports. The two Red Oak sites list Microsoft as occupant, while Google has <a href="https://baxtel.com/news/4049" target="_blank" rel="noopener">announced</a> its own campus in Red Oak.</li>
-        <li><b>Firms in the file</b> are consultants and law firms whose correspondence appears in a TCEQ application. Their exact role is not stated.</li>
-        <li><b>Permits by rule</b> and some standard permits are not on the TCEQ pending list, so smaller on-site generation can be missing.</li>
-        <li><b>No MW per site.</b> ERCOT does not publish project-level large-load data. Generator counts describe backup capacity, not IT load.</li>
+        <li><b>City only.</b> The tax list has no addresses, so those sites sit at their city.</li>
+        <li><b>"Certified" date</b> is when the tax break started, not when the site opened.</li>
+        <li><b>Tenants as filed.</b> They can differ from the press. The state lists Microsoft at two Red Oak sites, but Google <a href="https://baxtel.com/news/4049" target="_blank" rel="noopener">announced</a> a campus there.</li>
+        <li><b>Firms in the file</b> appear in a permit's emails. Their exact role isn't stated.</li>
+        <li><b>Small permits are missing.</b> Some generator permits skip the TCEQ list.</li>
+        <li><b>No MW per site.</b> ERCOT doesn't publish it. Backup generators show size, not actual use.</li>
       </ul>
     </div>
   </section>
 
   <section class="about" aria-labelledby="a-h">
     <h3 id="a-h">About</h3>
-    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (GPA 4.0, graduating May 2027). Before Texas, I interned in substations with Enedis, France's distribution grid operator, and completed an engineering apprenticeship coordinating projects for industrial clients. I built this tracker to follow how data center growth is reshaping power demand in North Texas.</p>
-    <p>I'm looking for a Spring 2027 internship in project or analyst roles in energy. French native, fluent in English. Corrections and questions are welcome. <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
+    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (GPA 4.0, May 2027). Before Texas, I interned in substations at Enedis, France's grid operator. I also coordinated projects for industrial clients as an engineering apprentice. I built this map to see how data centers are changing power demand in North Texas.</p>
+    <p>I'm looking for a Spring 2027 internship in energy, in a project or analyst role. I speak French and English. Questions and corrections are welcome. <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
   </section>
 </div>
 
@@ -311,15 +311,15 @@ function drawStats() {
   const south = SITES.filter(s => ["Lancaster", "Wilmer", "Red Oak"].includes(s.city)).length;
   const longhorn = SITES.find(s => s.permit === "184454");
   const items = [
-    ["410<small>GW</small>", "<b>Large-load requests in ERCOT</b>, about 87% data centers, March 2026.", ERCOT_PDF],
-    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Certified sites in the region name a cloud or AI tenant</b> on the state list.", COMPTROLLER],
-    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Standby generation filed for Project Longhorn</b> in Wilmer: 891 units of 3,000 kW.", longhorn ? summaryUrl(longhorn) : TCEQ],
-    [`${south}<small>sites</small>`, "<b>Clustered south of Dallas</b>, in Lancaster, Wilmer and Red Oak.", null]
+    ["410<small>GW</small>", "<b>Asked of the Texas grid</b> by big users. About 87% are data centers.", ERCOT_PDF],
+    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Local sites list a cloud or AI tenant</b> on the state tax list.", COMPTROLLER],
+    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Backup power filed in Wilmer</b>: 891 generators of 3 MW each.", longhorn ? summaryUrl(longhorn) : TCEQ],
+    [`${south}<small>sites</small>`, "<b>Sites south of Dallas</b>: Lancaster, Wilmer and Red Oak.", null]
   ];
   document.getElementById("stats").innerHTML = items.map(([n, t, url]) =>
     `<div class="stat"><div class="n">${n}</div><p>${t}${url ? ` <a href="${url}" target="_blank" rel="noopener">Filing ↗</a>` : ""}</p></div>`).join("");
   document.getElementById("thesis").textContent =
-    `${cloud.length} DFW data centers list a cloud or AI tenant. A new campus near Wilmer has filed for 891 backup generators.`;
+    `${cloud.length} DFW data centers list a cloud or AI tenant. A new campus near Wilmer filed for 891 backup generators.`;
 }
 
 /* sites added in the latest update; hidden on the first edition, when everything is new */
@@ -415,7 +415,7 @@ function restyleMarkers() {
 function drawLegend() {
   document.getElementById("legend").innerHTML =
     Object.values(TYPES).map(t => `<span><i style="background:${t.color}"></i>${t.label}</span>`).join("") +
-    `<span><i class="ring"></i>Placed at city, not address</span>`;
+    `<span><i class="ring"></i>City only</span>`;
 }
 
 function drawFilters() {

@@ -1,2 +1,5 @@
 # Downloaded source pages and PDFs, re-fetched on every run
 data-raw/
+
+# Personal outreach material (contacts, phone number), never published
+outreach/

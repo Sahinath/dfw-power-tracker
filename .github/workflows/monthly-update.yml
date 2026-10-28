@@ -1,0 +1,36 @@
+name: Monthly update
+
+# Downloads the TCEQ and Comptroller lists, finds entries not seen before and opens a pull request
+# listing them. Nothing reaches the site until the pull request is reviewed and merged.
+on:
+  schedule:
+    - cron: "0 14 1 * *"   # 1st of every month, 14:00 UTC (8 or 9 AM in Dallas)
+  workflow_dispatch:        # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch sources and list candidates
+        shell: pwsh
+        run: ./scripts/update.ps1
+
+      - name: Open a pull request for review
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: monthly-update
+          delete-branch: true
+          commit-message: Monthly update
+          title: Monthly update – candidates to review
+          body-path: review/candidates.md
+          add-paths: |
+            data/seen.json
+            site/data/meta.json
+            review/candidates.md
+            review/candidates.json

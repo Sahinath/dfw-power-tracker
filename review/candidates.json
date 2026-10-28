@@ -1,0 +1,93 @@
+﻿[
+    {
+        "source":  "comptroller",
+        "key":  "QTS Irving 1|02/09/2024",
+        "name":  "QTS Irving 1",
+        "who":  "Microsoft Corporation",
+        "date":  "02/09/2024",
+        "status":  "Large list",
+        "dataCenter":  true,
+        "power":  false,
+        "dfw":  true,
+        "excerpt":  "Owner: QTS Irving DC3, LLC; QTS Irving DC4, LLC; QTS Irving DC5, LLC; QTS Irving DC6, LLC. Occupant: Microsoft Corporation. Operator: QTS Irving DC3, LLC; QTS Irving DC4, LLC; QTS Irving DC5, LLC; QTS Irving DC6 LLC.",
+        "link":  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php"
+    },
+    {
+        "source":  "tceq",
+        "key":  "184454",
+        "name":  "PROJECT LONGHORN",
+        "who":  "SCHLACHTER REALTY, LTD.",
+        "date":  "06/19/2026",
+        "status":  "Administrative Complete Application",
+        "dataCenter":  true,
+        "power":  true,
+        "dfw":  true,
+        "excerpt":  "submitted an application for initial permit number 184454 \u0026 Nonattainment Permit N334. The Schlacter Data Center (RN 112475363) will produce/manufacture operate a hyperscale data center in southern Dallas County, Te xas, generally bounded by Belt Line Road to the north, Mason Road to the east, Ferris Road to the south, and Lavender Road and Van Road to the west, traveling from the intersection of Belt Line Road and Sunrise Road south on Sunrise Road approximately 0.5 mile to the intersection of North Sunrise Road and Van Road. Wilmer, Dallas County, Texas. This permit will authorize the constr",
+        "link":  "https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/184454-pls-english.pdf"
+    },
+    {
+        "source":  "tceq",
+        "key":  "131651",
+        "name":  "ADC PLANO",
+        "who":  "ALIGNED DATA CENTERS REIT LLC",
+        "date":  "03/30/2026",
+        "status":  "Technically Complete Application",
+        "dataCenter":  true,
+        "power":  true,
+        "dfw":  true,
+        "excerpt":  "submitted an application for renewal of permit number 131651. The ADC Plano (RN102319506) is a data center at 2800 Summit Avenue, Plano, Texas, Collin County. This renewal application will authorize the continued operation of twenty (20) diesel engine generators and five (5) diesel tanks. Aligned has certified there will be no changes to the permit. The following permitted emission rates will remain the same. Pollutant Permitted Emissions (tons per year) Emissions Added/Removed (tons per year) Total Proposed Emissions (tons per year) NOx 0.48 0.00 0.48 CO 0.06 0.00 0.06 VOC 0.02 0.00 0.02 PM 0",
+        "link":  "https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/131651-pls-english.pdf"
+    },
+    {
+        "source":  "tceq",
+        "key":  "183046",
+        "name":  "NEXUS DATA CENTER HUBBARD",
+        "who":  "NEXUS HUBBARD POWER, LLC",
+        "date":  "02/17/2026",
+        "status":  "Administrative Complete Application",
+        "dataCenter":  true,
+        "power":  true,
+        "dfw":  true,
+        "excerpt":  "submitted an application for initial permit number 183046, GHGPSDTX269, and PSDTX1700 . The Nexus Data Center Hubbard (RN112221833) will manage data and process high com-putational loads at 880 State Highway 171, Hubbard, Hill County.This permit will authorize power generation to support infrastructure necessary for managing data and high computational loads. The data center does not sell power to the grid. Nexus Hubbard Power, LLC has listed in the application the pollutants and amounts that will be emitted for each facility. Below is the total amount for each pollutant that is proposed to be",
+        "link":  "https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/183046-pls-english.pdf"
+    },
+    {
+        "source":  "tceq",
+        "key":  "183703",
+        "name":  "AMAZONCOM SERVICES LLC - TXZ5",
+        "who":  "AMAZONCOM SERVICES LLC",
+        "date":  "04/14/2026",
+        "status":  "Administrative Complete Application",
+        "dataCenter":  false,
+        "power":  true,
+        "dfw":  true,
+        "excerpt":  "submitted an application for initial permit number TBD. The Amazon.com Services LLC - TXZ5 Site (RN112039821) will operate a warehouse distribution center of consumer goods at 1221 West Industrial Boulevard, Cleburne, Johnson County. This permit will authorize thirty (30) generators for emergency and non-emergency power generation at the warehouse. Amazon has listed in the application the pollutants and amounts that will be emitted for each facility. Below is the total amount for each pollutant that is proposed to be emitted each year for all the facilities. Pollutant Proposed Emissions (tons ",
+        "link":  "https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/183703-pls-english.pdf"
+    },
+    {
+        "source":  "comptroller",
+        "key":  "Bexar 1|07/24/2026",
+        "name":  "Bexar 1",
+        "who":  "Amazon Data Services, Inc.",
+        "date":  "07/24/2026",
+        "status":  "Standard list",
+        "dataCenter":  true,
+        "power":  false,
+        "dfw":  false,
+        "excerpt":  "Owner: Amazon Data Services, Inc.. Occupant: Amazon Data Services, Inc.. Operator: Amazon Data Services, Inc..",
+        "link":  "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php"
+    },
+    {
+        "source":  "tceq",
+        "key":  "182880",
+        "name":  "GOODNIGHT DATA CENTER",
+        "who":  "CRUSOE ENERGY SYSTEMS LLC",
+        "date":  "01/30/2026",
+        "status":  "Administrative Complete Application",
+        "dataCenter":  true,
+        "power":  true,
+        "dfw":  false,
+        "excerpt":  "submitted an application for an initial permit. The Goodnight Data Center (RN112229901) will generat e electricity at 35.01752, - 101.31175, Claude, Armstrong County. This permit will authorize power generation equipment for data center buildings. Crusoe Energy Systems LLC has listed in the application the pollutants and amounts that will be emitted for th e facility. Below is the total amount for each pollutant that is proposed to be emitted each year for all the facilities. Pollutant Proposed Emissions (ton/yr) VOC 294.8 PM 10 374.0 PM 2.5 373.8 NO x 552.1 CO 376.3 SO 2 52.7 H 2 SO 4 4.41 HA",
+        "link":  "https://www.tceq.texas.gov/downloads/permitting/air/bilingual/pending-permit-notices/182880-pls-english.pdf"
+    }
+]

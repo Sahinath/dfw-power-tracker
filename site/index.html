@@ -1,0 +1,457 @@
+<title>DFW Power Tracker</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Public filings on data centers and on-site power around Dallas-Fort Worth, compiled monthly by Sahinath Saminadane.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
+<style>/* Leaflet 1.9.4 */
+.leaflet-image-layer,.leaflet-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane,.leaflet-pane>canvas,.leaflet-pane>svg,.leaflet-tile,.leaflet-tile-container,.leaflet-zoom-box{position:absolute;left:0;top:0}.leaflet-container{overflow:hidden}.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-tile{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-user-drag:none}.leaflet-tile::selection{background:0 0}.leaflet-safari .leaflet-tile{image-rendering:-webkit-optimize-contrast}.leaflet-safari .leaflet-tile-container{width:1600px;height:1600px;-webkit-transform-origin:0 0}.leaflet-marker-icon,.leaflet-marker-shadow{display:block}.leaflet-container .leaflet-overlay-pane svg{max-width:none!important;max-height:none!important}.leaflet-container .leaflet-marker-pane img,.leaflet-container .leaflet-shadow-pane img,.leaflet-container .leaflet-tile,.leaflet-container .leaflet-tile-pane img,.leaflet-container img.leaflet-image-layer{max-width:none!important;max-height:none!important;width:auto;padding:0}.leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter}.leaflet-container.leaflet-touch-zoom{-ms-touch-action:pan-x pan-y;touch-action:pan-x pan-y}.leaflet-container.leaflet-touch-drag{-ms-touch-action:pinch-zoom;touch-action:none;touch-action:pinch-zoom}.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom{-ms-touch-action:none;touch-action:none}.leaflet-container{-webkit-tap-highlight-color:transparent}.leaflet-container a{-webkit-tap-highlight-color:rgba(51,181,229,.4)}.leaflet-tile{filter:inherit;visibility:hidden}.leaflet-tile-loaded{visibility:inherit}.leaflet-zoom-box{width:0;height:0;-moz-box-sizing:border-box;box-sizing:border-box;z-index:800}.leaflet-overlay-pane svg{-moz-user-select:none}.leaflet-pane{z-index:400}.leaflet-tile-pane{z-index:200}.leaflet-overlay-pane{z-index:400}.leaflet-shadow-pane{z-index:500}.leaflet-marker-pane{z-index:600}.leaflet-tooltip-pane{z-index:650}.leaflet-popup-pane{z-index:700}.leaflet-map-pane canvas{z-index:100}.leaflet-map-pane svg{z-index:200}.leaflet-vml-shape{width:1px;height:1px}.lvml{behavior:url(#default#VML);display:inline-block;position:absolute}.leaflet-control{position:relative;z-index:800;pointer-events:visiblePainted;pointer-events:auto}.leaflet-bottom,.leaflet-top{position:absolute;z-index:1000;pointer-events:none}.leaflet-top{top:0}.leaflet-right{right:0}.leaflet-bottom{bottom:0}.leaflet-left{left:0}.leaflet-control{float:left;clear:both}.leaflet-right .leaflet-control{float:right}.leaflet-top .leaflet-control{margin-top:10px}.leaflet-bottom .leaflet-control{margin-bottom:10px}.leaflet-left .leaflet-control{margin-left:10px}.leaflet-right .leaflet-control{margin-right:10px}.leaflet-fade-anim .leaflet-popup{opacity:0;-webkit-transition:opacity .2s linear;-moz-transition:opacity .2s linear;transition:opacity .2s linear}.leaflet-fade-anim .leaflet-map-pane .leaflet-popup{opacity:1}.leaflet-zoom-animated{-webkit-transform-origin:0 0;-ms-transform-origin:0 0;transform-origin:0 0}svg.leaflet-zoom-animated{will-change:transform}.leaflet-zoom-anim .leaflet-zoom-animated{-webkit-transition:-webkit-transform .25s cubic-bezier(0,0,.25,1);-moz-transition:-moz-transform .25s cubic-bezier(0,0,.25,1);transition:transform .25s cubic-bezier(0,0,.25,1)}.leaflet-pan-anim .leaflet-tile,.leaflet-zoom-anim .leaflet-tile{-webkit-transition:none;-moz-transition:none;transition:none}.leaflet-zoom-anim .leaflet-zoom-hide{visibility:hidden}.leaflet-interactive{cursor:pointer}.leaflet-grab{cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.leaflet-crosshair,.leaflet-crosshair .leaflet-interactive{cursor:crosshair}.leaflet-control,.leaflet-popup-pane{cursor:auto}.leaflet-dragging .leaflet-grab,.leaflet-dragging .leaflet-grab .leaflet-interactive,.leaflet-dragging .leaflet-marker-draggable{cursor:move;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}.leaflet-image-layer,.leaflet-marker-icon,.leaflet-marker-shadow,.leaflet-pane>svg path,.leaflet-tile-container{pointer-events:none}.leaflet-image-layer.leaflet-interactive,.leaflet-marker-icon.leaflet-interactive,.leaflet-pane>svg path.leaflet-interactive,svg.leaflet-image-layer.leaflet-interactive path{pointer-events:visiblePainted;pointer-events:auto}.leaflet-container{background:#ddd;outline-offset:1px}.leaflet-container a{color:#0078a8}.leaflet-zoom-box{border:2px dotted #38f;background:rgba(255,255,255,.5)}.leaflet-container{font-family:"Helvetica Neue",Arial,Helvetica,sans-serif;font-size:12px;font-size:.75rem;line-height:1.5}.leaflet-bar{box-shadow:0 1px 5px rgba(0,0,0,.65);border-radius:4px}.leaflet-bar a{background-color:#fff;border-bottom:1px solid #ccc;width:26px;height:26px;line-height:26px;display:block;text-align:center;text-decoration:none;color:#000}.leaflet-bar a,.leaflet-control-layers-toggle{background-position:50% 50%;background-repeat:no-repeat;display:block}.leaflet-bar a:focus,.leaflet-bar a:hover{background-color:#f4f4f4}.leaflet-bar a:first-child{border-top-left-radius:4px;border-top-right-radius:4px}.leaflet-bar a:last-child{border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-bottom:none}.leaflet-bar a.leaflet-disabled{cursor:default;background-color:#f4f4f4;color:#bbb}.leaflet-touch .leaflet-bar a{width:30px;height:30px;line-height:30px}.leaflet-touch .leaflet-bar a:first-child{border-top-left-radius:2px;border-top-right-radius:2px}.leaflet-touch .leaflet-bar a:last-child{border-bottom-left-radius:2px;border-bottom-right-radius:2px}.leaflet-control-zoom-in,.leaflet-control-zoom-out{font:bold 18px 'Lucida Console',Monaco,monospace;text-indent:1px}.leaflet-touch .leaflet-control-zoom-in,.leaflet-touch .leaflet-control-zoom-out{font-size:22px}.leaflet-control-layers{box-shadow:0 1px 5px rgba(0,0,0,.4);background:#fff;border-radius:5px}.leaflet-control-layers-toggle{background-image:url(images/layers.png);width:36px;height:36px}.leaflet-retina .leaflet-control-layers-toggle{background-image:url(images/layers-2x.png);background-size:26px 26px}.leaflet-touch .leaflet-control-layers-toggle{width:44px;height:44px}.leaflet-control-layers .leaflet-control-layers-list,.leaflet-control-layers-expanded .leaflet-control-layers-toggle{display:none}.leaflet-control-layers-expanded .leaflet-control-layers-list{display:block;position:relative}.leaflet-control-layers-expanded{padding:6px 10px 6px 6px;color:#333;background:#fff}.leaflet-control-layers-scrollbar{overflow-y:scroll;overflow-x:hidden;padding-right:5px}.leaflet-control-layers-selector{margin-top:2px;position:relative;top:1px}.leaflet-control-layers label{display:block;font-size:13px;font-size:1.08333em}.leaflet-control-layers-separator{height:0;border-top:1px solid #ddd;margin:5px -10px 5px -6px}.leaflet-default-icon-path{background-image:url(images/marker-icon.png)}.leaflet-container .leaflet-control-attribution{background:#fff;background:rgba(255,255,255,.8);margin:0}.leaflet-control-attribution,.leaflet-control-scale-line{padding:0 5px;color:#333;line-height:1.4}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:focus,.leaflet-control-attribution a:hover{text-decoration:underline}.leaflet-attribution-flag{display:inline!important;vertical-align:baseline!important;width:1em;height:.6669em}.leaflet-left .leaflet-control-scale{margin-left:5px}.leaflet-bottom .leaflet-control-scale{margin-bottom:5px}.leaflet-control-scale-line{border:2px solid #777;border-top:none;line-height:1.1;padding:2px 5px 1px;white-space:nowrap;-moz-box-sizing:border-box;box-sizing:border-box;background:rgba(255,255,255,.8);text-shadow:1px 1px #fff}.leaflet-control-scale-line:not(:first-child){border-top:2px solid #777;border-bottom:none;margin-top:-2px}.leaflet-control-scale-line:not(:first-child):not(:last-child){border-bottom:2px solid #777}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-attribution,.leaflet-touch .leaflet-control-layers{box-shadow:none}.leaflet-touch .leaflet-bar,.leaflet-touch .leaflet-control-layers{border:2px solid rgba(0,0,0,.2);background-clip:padding-box}.leaflet-popup{position:absolute;text-align:center;margin-bottom:20px}.leaflet-popup-content-wrapper{padding:1px;text-align:left;border-radius:12px}.leaflet-popup-content{margin:13px 24px 13px 20px;line-height:1.3;font-size:13px;font-size:1.08333em;min-height:1px}.leaflet-popup-content p{margin:17px 0;margin:1.3em 0}.leaflet-popup-tip-container{width:40px;height:20px;position:absolute;left:50%;margin-top:-1px;margin-left:-20px;overflow:hidden;pointer-events:none}.leaflet-popup-tip{width:17px;height:17px;padding:1px;margin:-10px auto 0;pointer-events:auto;-webkit-transform:rotate(45deg);-moz-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg)}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#fff;color:#333;box-shadow:0 3px 14px rgba(0,0,0,.4)}.leaflet-container a.leaflet-popup-close-button{position:absolute;top:0;right:0;border:none;text-align:center;width:24px;height:24px;font:16px/24px Tahoma,Verdana,sans-serif;color:#757575;text-decoration:none;background:0 0}.leaflet-container a.leaflet-popup-close-button:focus,.leaflet-container a.leaflet-popup-close-button:hover{color:#585858}.leaflet-popup-scrolled{overflow:auto}.leaflet-oldie .leaflet-popup-content-wrapper{-ms-zoom:1}.leaflet-oldie .leaflet-popup-tip{width:24px;margin:0 auto}.leaflet-oldie .leaflet-control-layers,.leaflet-oldie .leaflet-control-zoom,.leaflet-oldie .leaflet-popup-content-wrapper,.leaflet-oldie .leaflet-popup-tip{border:1px solid #999}.leaflet-div-icon{background:#fff;border:1px solid #666}.leaflet-tooltip{position:absolute;padding:6px;background-color:#fff;border:1px solid #fff;border-radius:3px;color:#222;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;pointer-events:none;box-shadow:0 1px 3px rgba(0,0,0,.4)}.leaflet-tooltip.leaflet-interactive{cursor:pointer;pointer-events:auto}.leaflet-tooltip-bottom:before,.leaflet-tooltip-left:before,.leaflet-tooltip-right:before,.leaflet-tooltip-top:before{position:absolute;pointer-events:none;border:6px solid transparent;background:0 0;content:""}.leaflet-tooltip-bottom{margin-top:6px}.leaflet-tooltip-top{margin-top:-6px}.leaflet-tooltip-bottom:before,.leaflet-tooltip-top:before{left:50%;margin-left:-6px}.leaflet-tooltip-top:before{bottom:0;margin-bottom:-12px;border-top-color:#fff}.leaflet-tooltip-bottom:before{top:0;margin-top:-12px;margin-left:-6px;border-bottom-color:#fff}.leaflet-tooltip-left{margin-left:-6px}.leaflet-tooltip-right{margin-left:6px}.leaflet-tooltip-left:before,.leaflet-tooltip-right:before{top:50%;margin-top:-6px}.leaflet-tooltip-left:before{right:0;margin-right:-12px;border-left-color:#fff}.leaflet-tooltip-right:before{left:0;margin-left:-12px;border-right-color:#fff}@media print{.leaflet-control{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style>
+<style>
+/* Layout: one column report. Header, key numbers, full-width map, site table, ERCOT context, notes, about. */
+:root {
+  --paper: #f5f6f4;
+  --sheet: #ffffff;
+  --ink: #17222b;
+  --muted: #5a6670;
+  --rule: #d9dedf;
+  --soft: #eceff0;
+  --accent: #b5650a;     /* high-voltage amber */
+  --cloud: #1d5f8f;      /* cloud / AI tenant */
+  --enterprise: #7d8a93; /* bank, insurer, other enterprise */
+  --crypto: #7a4fa0;     /* bitcoin mining */
+  --permit: #c56a00;     /* pending TCEQ permit */
+  --gen: #2e7b4e;        /* new grid generation */
+  --tiles: grayscale(.55) contrast(.95) brightness(1.03);
+  --font: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10171d; --sheet: #161f27; --ink: #e5ebee; --muted: #9ba8b1; --rule: #2a3640; --soft: #1e2a33;
+    --accent: #f0a33c; --cloud: #6db0e2; --enterprise: #8f9ca5; --crypto: #b48ce0; --permit: #f0a33c; --gen: #68c08e;
+    --tiles: invert(1) hue-rotate(180deg) grayscale(.6) brightness(.85) contrast(.9);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10171d; --sheet: #161f27; --ink: #e5ebee; --muted: #9ba8b1; --rule: #2a3640; --soft: #1e2a33;
+  --accent: #f0a33c; --cloud: #6db0e2; --enterprise: #8f9ca5; --crypto: #b48ce0; --permit: #f0a33c; --gen: #68c08e;
+  --tiles: invert(1) hue-rotate(180deg) grayscale(.6) brightness(.85) contrast(.9);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink); font: 400 16px/1.6 var(--font);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px; display: grid; gap: 48px; }
+a { color: var(--cloud); text-underline-offset: 2px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; line-height: 1.15; text-wrap: balance; }
+h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); font-weight: 800; letter-spacing: -.02em; }
+h2 { font-size: 1.55rem; font-weight: 700; letter-spacing: -.01em; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p { margin: 0; max-width: 68ch; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.small { font-size: .875rem; }
+section > .head { display: grid; gap: 8px; margin-bottom: 18px; }
+
+/* header */
+header { display: grid; gap: 14px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.kicker { font-size: .875rem; font-weight: 600; color: var(--accent); }
+.lede { font-size: 1.125rem; color: var(--muted); }
+.meta { display: flex; flex-wrap: wrap; gap: 4px 20px; font-size: .875rem; color: var(--muted); }
+.meta b { color: var(--ink); font-weight: 600; }
+
+/* key numbers */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+@media (max-width: 860px) { .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 440px) { .stats { grid-template-columns: minmax(0, 1fr); } }
+.stat { display: grid; gap: 6px; align-content: start; }
+.stat .n { font-size: 2.4rem; font-weight: 800; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.stat .n small { font-size: 1rem; font-weight: 600; color: var(--muted); margin-left: 4px; letter-spacing: 0; }
+.stat p { font-size: .9rem; color: var(--muted); }
+.stat p b { color: var(--ink); font-weight: 600; }
+
+/* map */
+.mapbox { background: var(--sheet); border: 1px solid var(--rule); }
+#map { height: 560px; background: var(--soft); }
+@media (max-width: 600px) { #map { height: 440px; } }
+#map .leaflet-tile-pane { filter: var(--tiles); }
+.leaflet-container { font-family: var(--font); }
+.leaflet-popup-content-wrapper, .leaflet-popup-tip { background: var(--sheet); color: var(--ink); box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+.leaflet-popup-content { margin: 12px 14px; font-size: .85rem; line-height: 1.45; }
+.leaflet-popup-content b { font-size: .95rem; }
+.leaflet-container a.leaflet-popup-close-button { color: var(--muted); }
+.leaflet-control-attribution { background: color-mix(in srgb, var(--sheet) 85%, transparent) !important; color: var(--muted); }
+.leaflet-control-attribution a { color: var(--cloud); }
+.leaflet-bar a { background: var(--sheet); color: var(--ink); border-bottom-color: var(--rule); }
+.pop-meta { color: var(--muted); display: block; margin-top: 4px; }
+.pop-links { display: flex; gap: 12px; margin-top: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; padding: 12px 16px; border-top: 1px solid var(--rule); font-size: .82rem; color: var(--muted); align-items: center; }
+.legend i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 6px; vertical-align: -1px; }
+.legend .ring { background: transparent; border: 1.5px dashed var(--muted); }
+
+/* filters + table */
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.chip { font: 500 .82rem var(--font); border: 1px solid var(--rule); background: var(--sheet); color: var(--ink); padding: 6px 12px; border-radius: 999px; cursor: pointer; display: inline-flex; gap: 7px; align-items: center; }
+.chip i { width: 9px; height: 9px; border-radius: 50%; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--sheet); border-color: var(--ink); }
+.count { margin-left: auto; font-size: .85rem; color: var(--muted); }
+.tablebox { overflow: auto; max-height: 560px; background: var(--sheet); border: 1px solid var(--rule); }
+table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+th { position: sticky; top: 0; z-index: 1; background: var(--sheet); text-align: left; font-weight: 600; font-size: .8rem; color: var(--muted); padding: 10px 14px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+td { padding: 11px 14px; border-bottom: 1px solid var(--soft); vertical-align: top; }
+tr.hl td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
+td.site { font-weight: 600; min-width: 200px; }
+td.site span { display: block; font-weight: 400; color: var(--muted); font-size: .82rem; margin-top: 2px; }
+td.date { white-space: nowrap; font-variant-numeric: tabular-nums; }
+td.date span { display: block; font-size: .78rem; color: var(--muted); }
+.tag { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
+.tag i { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.approx { font-size: .75rem; color: var(--muted); border: 1px dashed var(--rule); padding: 0 6px; border-radius: 4px; margin-left: 6px; white-space: nowrap; }
+td button.locate { font: 500 .8rem var(--font); background: none; border: 0; color: var(--cloud); cursor: pointer; padding: 0; text-decoration: underline; }
+
+/* ERCOT */
+.ercot { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; align-items: start; }
+@media (max-width: 860px) { .ercot { grid-template-columns: minmax(0, 1fr); } }
+.ercot .text { display: grid; gap: 12px; }
+.bars { display: grid; gap: 12px; background: var(--sheet); border: 1px solid var(--rule); padding: 18px 16px; }
+.bar { display: grid; grid-template-columns: 170px minmax(0, 1fr) 76px; gap: 12px; align-items: center; font-size: .875rem; }
+@media (max-width: 480px) { .bar { grid-template-columns: 108px minmax(0, 1fr) 64px; } }
+.bar .track { height: 16px; background: var(--soft); position: relative; }
+.bar .fill { position: absolute; inset: 0 auto 0 0; background: var(--enterprise); }
+.bar.load { font-weight: 700; }
+.bar.load .fill { background: var(--accent); }
+.bar.total .fill { background: var(--enterprise); opacity: .45; }
+.bar .val { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* questions */
+.questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px 32px; }
+.q { display: grid; gap: 6px; align-content: start; padding-top: 14px; border-top: 1px solid var(--rule); }
+.q p { font-size: .925rem; color: var(--muted); }
+
+/* new this month */
+.newbox { display: grid; gap: 12px; padding: 20px 24px; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--accent); }
+.newbox ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .925rem; }
+
+/* notes, about */
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; font-size: .9rem; }
+.notes ul { margin: 10px 0 0; padding-left: 18px; display: grid; gap: 8px; color: var(--muted); }
+.notes li b { color: var(--ink); font-weight: 600; }
+.about { background: var(--sheet); border: 1px solid var(--rule); padding: 24px; display: grid; gap: 10px; }
+.about p { color: var(--muted); }
+.about p b { color: var(--ink); }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="kicker">Dallas–Fort Worth · ERCOT region</span>
+    <h1>DFW Power Tracker</h1>
+    <p class="lede">Where data centers are landing around Dallas–Fort Worth, who occupies them, and which ones are asking the state to run their own generators. Built from Texas Comptroller, TCEQ and ERCOT public records.</p>
+    <div class="meta">
+      <span>Updated <b id="updated">Oct 28, 2026</b></span>
+      <span>By <b>Sahinath Saminadane</b></span>
+      <span>Refreshed monthly</span>
+    </div>
+  </header>
+
+  <section aria-label="Key numbers"><div class="stats" id="stats"></div></section>
+
+  <section id="new" class="newbox" aria-labelledby="new-h" hidden>
+    <h2 id="new-h">New since the last update</h2>
+    <ul id="new-list"></ul>
+  </section>
+
+  <section aria-labelledby="map-h">
+    <div class="head">
+      <h2 id="map-h">Sites on the map</h2>
+      <p class="muted">Solid dots have a street address in the filing. Dashed rings mark sites placed at the city named in the filing, so the exact parcel is unknown.</p>
+    </div>
+    <div class="mapbox">
+      <div id="map" role="region" aria-label="Map of data center sites around Dallas-Fort Worth"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="reg-h">
+    <div class="head"><h2 id="reg-h">Site register</h2></div>
+    <div class="toolbar" id="filters"></div>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>Site</th><th>Category</th><th>Tenant or applicant</th><th>Date</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="ercot" aria-labelledby="e-h">
+    <div class="text">
+      <h2 id="e-h">ERCOT's load queue now rivals its generation queue</h2>
+      <p>ERCOT reported about <b class="num">410 GW</b> of large loads asking to connect as of March 26, 2026, and said roughly <b>87%</b> of them are data centers. The generation interconnection queue stood at <b class="num">453.6 GW</b> on February 28, mostly batteries and solar.</p>
+      <p>ERCOT is moving large-load studies to a batch process. Requests are grouped and studied together about every six months, and the capacity each study allocates is reserved. Under the old one-at-a-time process, a new request in the same transmission zone could send earlier projects back into study.</p>
+      <p class="small muted">A request is not a commitment. Many large-load requests are speculative and will not be built.</p>
+    </div>
+    <div>
+      <div class="bars" id="bars"></div>
+      <p class="small muted" style="margin-top:10px">GW requested. Loads as of Mar 26, 2026; generation by fuel as of Feb 28, 2026. Source: ERCOT, Large Load Update, April 2026.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="q-h">
+    <div class="head">
+      <h2 id="q-h">Questions I am following</h2>
+      <p class="muted">What the filings raise for each part of the industry. These are open questions, not conclusions.</p>
+    </div>
+    <div class="questions">
+      <div class="q"><h3>Wires utilities</h3><p>Five mapped sites sit in a band about ten miles wide south of Dallas, in Lancaster, Wilmer and Red Oak. How will substation and transmission work be sequenced along that corridor?</p></div>
+      <div class="q"><h3>Generators and retailers</h3><p>A Hill County data center is applying for its own gas turbines and says it will not sell power to the grid. A combined-cycle plant for the grid is filed in the same county. Which loads will buy firm supply, and which will self-supply?</p></div>
+      <div class="q"><h3>Data center developers</h3><p>With six-month batch studies, the batch a request enters shapes its energization date. How much does time-to-power now drive site choice in DFW?</p></div>
+      <div class="q"><h3>Engineering and construction</h3><p>One Wilmer application covers 891 standby generators in the DFW ozone nonattainment area. How much do air permitting and generator supply add to the schedule of a large campus?</p></div>
+    </div>
+  </section>
+
+  <section class="notes" aria-label="Sources and limits">
+    <div>
+      <h3>Sources</h3>
+      <ul>
+        <li><b>Texas Comptroller</b>, registered Qualifying Data Centers and Large Data Center Projects: site name, effective date, owner, occupant, operator. <a href="https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php" target="_blank" rel="noopener">Open list</a></li>
+        <li><b>TCEQ</b>, pending New Source Review air permit applications and their plain-language summaries: address, county, equipment. <a href="https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/nsr-pending-permits.html" target="_blank" rel="noopener">Open list</a></li>
+        <li><b>ERCOT</b>, Large Load Update, April 2026. <a href="https://www.ercot.com/files/docs/2026/04/01/ERCOT_LargeLoad_Update_April2026_B-C_-Hearing.pdf" target="_blank" rel="noopener">Open PDF</a></li>
+        <li><b>Map</b>: © OpenStreetMap contributors. Addresses located with OpenStreetMap Nominatim.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Limits</h3>
+      <ul>
+        <li><b>City from the name.</b> The Comptroller list gives no address, so those sites are placed at the city in their name.</li>
+        <li><b>Effective date</b> is when a site's tax certification took effect, not when it was built or energized.</li>
+        <li><b>Permits by rule</b> and some standard permits are not on the TCEQ pending list, so smaller on-site generation can be missing.</li>
+        <li><b>No MW per site.</b> ERCOT does not publish project-level large-load data. Generator counts describe backup capacity, not IT load.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="about" aria-labelledby="a-h">
+    <h3 id="a-h">About</h3>
+    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (graduating May 2027). Before Texas I worked in substations with Enedis, France's distribution grid operator, and in project coordination and technical sales. I built this tracker to follow how data center growth is reshaping power demand in North Texas.</p>
+    <p>I'm looking for a Spring 2027 internship in project or analyst roles in energy. Corrections and questions are welcome. <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
+  </section>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+// Approximate city centers, used when a filing gives only a city.
+const CITIES = {
+  "Denton": [33.215, -97.133], "Lewisville": [33.046, -96.994], "Allen": [33.103, -96.671],
+  "Richardson": [32.948, -96.730], "Garland": [32.913, -96.639], "Royse City": [32.975, -96.332],
+  "Dallas": [32.777, -96.797], "Irving": [32.814, -96.949], "Fort Worth": [32.755, -97.331],
+  "Lancaster": [32.592, -96.756], "Wilmer": [32.589, -96.685], "Red Oak": [32.517, -96.804],
+  "Grandview": [32.267, -97.179], "Corsicana": [32.095, -96.469], "Bosque County": [31.900, -97.640]
+};
+
+const TYPES = {
+  cloud:      { label: "Cloud / AI tenant",  color: "var(--cloud)" },
+  enterprise: { label: "Enterprise tenant",  color: "var(--enterprise)" },
+  crypto:     { label: "Bitcoin mining",     color: "var(--crypto)" },
+  permit:     { label: "Pending air permit", color: "var(--permit)" },
+  gen:        { label: "New grid generation", color: "var(--gen)" }
+};
+
+const COMPTROLLER = "https://comptroller.texas.gov/taxes/data-centers/data-center-lists.php";
+const TCEQ = "https://www.tceq.texas.gov/assets/public/permitting/air/reports/applications/nsr-pending-permits.html";
+
+// Loaded from data/sites.json. src: "comptroller" (certified, date = effective date) or "tceq" (pending, date = received).
+// ll: exact coordinates when the filing gives an address. added: when the site entered this tracker.
+let SITES = [];
+
+const ERCOT = [
+  { k: "Large loads requesting connection", v: 410, cls: "load" },
+  { k: "Generation queue, total", v: 453.6, cls: "total" },
+  { k: "Energy storage", v: 177.6 },
+  { k: "Solar", v: 162.9 },
+  { k: "Gas", v: 60.7 },
+  { k: "Wind", v: 47.8 }
+];
+
+const fmtDate = d => new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const cssVar = v => getComputedStyle(document.documentElement).getPropertyValue(v.slice(4, -1)).trim();
+
+/* key numbers, computed from the register */
+function drawStats() {
+  const certified = SITES.filter(s => s.src === "comptroller");
+  const cloud = certified.filter(s => s.type === "cloud");
+  const south = SITES.filter(s => ["Lancaster", "Wilmer", "Red Oak"].includes(s.city)).length;
+  const items = [
+    ["410<small>GW</small>", "<b>Large-load requests in ERCOT</b>, about 87% data centers, March 2026."],
+    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Certified sites in the region name a cloud or AI tenant</b> on the state list."],
+    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Standby generation filed for Project Longhorn</b> in Wilmer: 891 units of 3,000 kW."],
+    [`${south}<small>sites</small>`, "<b>Clustered south of Dallas</b>, in Lancaster, Wilmer and Red Oak."]
+  ];
+  document.getElementById("stats").innerHTML = items.map(([n, t]) => `<div class="stat"><div class="n">${n}</div><p>${t}</p></div>`).join("");
+}
+
+/* sites added in the latest update; hidden on the first edition, when everything is new */
+function drawNew() {
+  const latest = SITES.reduce((m, s) => (s.added > m ? s.added : m), "");
+  const fresh = SITES.filter(s => s.added === latest);
+  const box = document.getElementById("new");
+  if (!latest || fresh.length === SITES.length) { box.hidden = true; return; }
+  box.hidden = false;
+  document.getElementById("new-h").textContent = `New since the last update (${fmtDate(latest)})`;
+  document.getElementById("new-list").innerHTML = fresh.map(s =>
+    `<li><span class="tag"><i style="background:${TYPES[s.type].color}"></i><b>${esc(s.name)}</b></span> ${esc(s.tenant)} · ${s.city ? esc(s.city) : "DFW"}${s.note ? ` · <span class="muted">${esc(s.note)}</span>` : ""}</li>`).join("");
+}
+
+/* ERCOT bars */
+(function bars() {
+  const max = Math.max(...ERCOT.map(d => d.v));
+  document.getElementById("bars").innerHTML = ERCOT.map(d =>
+    `<div class="bar ${d.cls || ""}"><span>${d.k}</span><span class="track"><span class="fill" style="width:${(d.v / max * 100).toFixed(1)}%"></span></span><span class="val">${d.v} GW</span></div>`).join("");
+})();
+
+/* map */
+const state = { type: null, selected: null };
+const markers = new Map();
+let map;
+
+function sitePosition(s, i, group) {
+  if (s.ll) return { ll: s.ll, exact: true };
+  const c = CITIES[s.city];
+  if (group.length === 1) return { ll: c, exact: false };
+  // spread sites that share a city around its center, about a mile apart
+  const a = (i / group.length) * Math.PI * 2;
+  return { ll: [c[0] + Math.sin(a) * 0.012, c[1] + Math.cos(a) * 0.014], exact: false };
+}
+
+function popupHtml(s) {
+  const where = s.address || (s.city ? `${s.city} (city named in filing)` : "DFW, city not stated");
+  const gq = encodeURIComponent(s.address || `${s.city}, Texas`);
+  const src = s.src === "tceq" ? TCEQ : COMPTROLLER;
+  const dateLabel = s.src === "tceq" ? "Permit application received" : "Tax certification effective";
+  return `<b>${esc(s.name)}</b>
+    <span class="pop-meta">${esc(s.tenant)} · ${esc(TYPES[s.type].label)}</span>
+    <span class="pop-meta">${esc(where)}</span>
+    <span class="pop-meta">${dateLabel}: ${fmtDate(s.date)}</span>
+    ${s.note ? `<span class="pop-meta">${esc(s.note)}</span>` : ""}
+    <span class="pop-links"><a href="${src}" target="_blank" rel="noopener">Source</a><a href="https://www.google.com/maps/search/?api=1&query=${gq}" target="_blank" rel="noopener">Open in Google Maps</a></span>`;
+}
+
+function initMap() {
+  if (!window.L) { document.getElementById("map").innerHTML = '<p style="padding:16px">The map library did not load. The site register below lists every site.</p>'; return; }
+  // Hosted on the web: live OpenStreetMap tiles at every zoom. Inside a Claude preview, which blocks
+  // outside images: the bundled tiles from scripts/fetch-tiles.ps1 (zoom 8-10, this area only).
+  const bundled = /claude/.test(location.hostname);
+  const bounds = L.latLngBounds([31.30, -98.70], [33.80, -95.40]);
+  const maxZoom = bundled ? 10 : 16;
+  map = L.map("map", { zoomSnap: 0.5, minZoom: 8, maxZoom, maxBounds: bounds, scrollWheelZoom: false });
+  L.tileLayer(bundled ? "tiles/{z}/{x}/{y}.png" : "https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    minZoom: 8, maxZoom, bounds,
+    attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  map.fitBounds([[31.83, -97.70], [33.25, -96.30]]);
+  map.on("click", () => { state.selected = null; drawRows(); });
+
+  const byCity = {};
+  SITES.filter(s => s.city).forEach(s => (byCity[s.city] ||= []).push(s));
+  for (const group of Object.values(byCity)) {
+    const loose = group.filter(s => !s.ll);
+    group.forEach(s => {
+      const pos = sitePosition(s, loose.indexOf(s), loose);
+      const color = cssVar(TYPES[s.type].color);
+      const m = pos.exact
+        ? L.circleMarker(pos.ll, { radius: 8, color: "#ffffff", weight: 2, fillColor: color, fillOpacity: 1 })
+        : L.circleMarker(pos.ll, { radius: 7, color, weight: 2, dashArray: "3 3", fillColor: color, fillOpacity: .35 });
+      m.bindPopup(popupHtml(s), { maxWidth: 280 });
+      m.bindTooltip(esc(s.name), { direction: "top", offset: [0, -6] });
+      m.on("click", () => { state.selected = s.name; drawRows(true); });
+      m.addTo(map);
+      markers.set(s.name, { m, s, exact: pos.exact });
+    });
+  }
+}
+
+function restyleMarkers() {
+  for (const { m, s, exact } of markers.values()) {
+    const color = cssVar(TYPES[s.type].color);
+    const on = !state.type || state.type === s.type;
+    m.setStyle(exact
+      ? { fillColor: color, fillOpacity: on ? 1 : .12, opacity: on ? 1 : .2 }
+      : { color, fillColor: color, fillOpacity: on ? .35 : .06, opacity: on ? 1 : .2 });
+  }
+}
+
+function drawLegend() {
+  document.getElementById("legend").innerHTML =
+    Object.values(TYPES).map(t => `<span><i style="background:${t.color}"></i>${t.label}</span>`).join("") +
+    `<span><i class="ring"></i>Placed at city, not address</span>`;
+}
+
+function drawFilters() {
+  const list = SITES.filter(s => !state.type || s.type === state.type);
+  const box = document.getElementById("filters");
+  box.innerHTML = Object.entries(TYPES).map(([k, t]) =>
+    `<button class="chip" type="button" data-type="${k}" aria-pressed="${state.type === k}"><i style="background:${t.color}"></i>${t.label}</button>`).join("") +
+    `<span class="count">${list.length} of ${SITES.length} sites</span>`;
+  box.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    state.type = state.type === b.dataset.type ? null : b.dataset.type;
+    drawFilters(); drawRows(); restyleMarkers();
+  }));
+}
+
+function drawRows(scroll) {
+  const list = SITES.filter(s => !state.type || s.type === state.type).sort((a, b) => b.date.localeCompare(a.date));
+  document.getElementById("rows").innerHTML = list.map(s => {
+    const place = s.address ? esc(s.address)
+      : s.city ? esc(s.city) + '<span class="approx">city only</span>'
+      : "DFW, city not stated";
+    const onMap = markers.has(s.name);
+    return `<tr data-name="${esc(s.name)}" class="${state.selected === s.name ? "hl" : ""}">
+      <td class="site">${esc(s.name)}<span>${place}</span>${s.note ? `<span>${esc(s.note)}</span>` : ""}</td>
+      <td><span class="tag"><i style="background:${TYPES[s.type].color}"></i>${TYPES[s.type].label}</span></td>
+      <td>${esc(s.tenant)}</td>
+      <td class="date">${fmtDate(s.date)}<span>${s.src === "tceq" ? "Permit filed" : "Certified"}</span></td>
+      <td>${onMap ? `<button class="locate" type="button" data-name="${esc(s.name)}">Show on map</button>` : ""}</td></tr>`;
+  }).join("");
+  document.querySelectorAll("button.locate").forEach(b => b.addEventListener("click", () => {
+    const hit = markers.get(b.dataset.name);
+    if (!hit || !map) return;
+    state.selected = b.dataset.name;
+    map.setView(hit.m.getLatLng(), 10);
+    hit.m.openPopup();
+    document.getElementById("map").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+    drawRows();
+  }));
+  if (scroll && state.selected) {
+    const row = document.querySelector(`tr[data-name="${CSS.escape(state.selected)}"]`);
+    if (row) row.scrollIntoView({ block: "nearest" });
+  }
+}
+
+async function start() {
+  try {
+    const [sites, meta] = await Promise.all([
+      fetch("data/sites.json", { cache: "no-cache" }).then(r => r.json()),
+      fetch("data/meta.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null)
+    ]);
+    // "name" stays the official filing name in the data; show the short label when there is one
+    SITES = sites.map(s => ({ ...s, name: s.label || s.name }));
+    if (meta && meta.checked) document.getElementById("updated").textContent = fmtDate(meta.checked);
+  } catch (e) {
+    document.getElementById("rows").innerHTML = '<tr><td colspan="5">The site list could not be loaded. Reload the page to try again.</td></tr>';
+    return;
+  }
+  drawStats();
+  drawNew();
+  initMap();
+  drawLegend();
+  drawFilters();
+  drawRows();
+}
+start();
+// marker colors come from theme tokens, so refresh them when the theme changes
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", restyleMarkers);
+new MutationObserver(restyleMarkers).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+</script>

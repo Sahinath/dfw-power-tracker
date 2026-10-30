@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DFW Power Tracker</title>
+<title>DFW Data Center Pipeline</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Public filings on data centers and on-site power around Dallas-Fort Worth, compiled monthly by Sahinath Saminadane.">
+<meta name="description" content="Every data center site in Dallas-Fort Worth from state filings: who's behind it and how it gets power. Updated monthly.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
@@ -158,13 +158,14 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 <body>
 <div class="wrap">
   <header>
-    <span class="kicker">DFW Power Tracker · Dallas–Fort Worth, ERCOT region</span>
-    <h1 id="thesis">22 DFW data centers list a cloud or AI tenant. A new campus near Wilmer filed for 891 backup generators.</h1>
-    <p class="lede">Where data centers are coming to Dallas, who is behind them, and who plans to make their own power. Every site links to its public record.</p>
+    <span class="kicker">DFW Data Center Pipeline</span>
+    <h1 id="thesis">Know DFW's next data centers first</h1>
+    <p class="lede">Who's behind each one, and who plans to make their own power. Every site links to its filing.</p>
     <div class="meta">
       <span>Updated <b id="updated">Oct 28, 2026</b></span>
       <span>By <b>Sahinath Saminadane</b></span>
-      <span>Refreshed monthly</span>
+      <span>Updated monthly</span>
+      <a href="#about">Open to Spring 2027 internships</a>
     </div>
   </header>
 
@@ -177,7 +178,7 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 
   <section aria-labelledby="map-h">
     <div class="head">
-      <h2 id="map-h">Sites on the map</h2>
+      <h2 id="map-h">Map</h2>
       <p class="muted">Solid dots: exact address. Dashed rings: city only.</p>
     </div>
     <div class="mapbox">
@@ -201,8 +202,8 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
     <div class="text">
       <h2 id="e-h">Texas paused new data center hookups</h2>
       <p>On August 3, 2026, Gov. Abbott paused grid approvals for data centers until the state audits every request. ERCOT also delayed its first batch study.</p>
-      <p>Requests keep piling up. Big users have asked for <b class="num">474 GW</b>, and about <b>90%</b> are data centers. New power plants in line add up to <b class="num">453.6 GW</b>, mostly batteries and solar.</p>
-      <p class="small muted">Many requests will never be built. While hookups wait, more sites plan to make their own power. <a href="https://www.nbcdfw.com/news/local/texas-news/data-center-approvals-in-texas-halted-until-audits-completed-gov-greg-abbott-says/4058445/" target="_blank" rel="noopener">Read about the pause ↗</a></p>
+      <p>Big users have asked for <b class="num">474 GW</b>. About <b>90%</b> are data centers. New power plants in line add up to <b class="num">453.6 GW</b>, mostly batteries and solar.</p>
+      <p class="small muted">Many requests will never be built. While hookups wait, some sites plan their own power. <a href="https://www.nbcdfw.com/news/local/texas-news/data-center-approvals-in-texas-halted-until-audits-completed-gov-greg-abbott-says/4058445/" target="_blank" rel="noopener">Read about the pause ↗</a></p>
     </div>
     <div>
       <div class="bars" id="bars"></div>
@@ -212,14 +213,13 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 
   <section aria-labelledby="q-h">
     <div class="head">
-      <h2 id="q-h">Questions I'm following</h2>
-      <p class="muted">Open questions, not answers.</p>
+      <h2 id="q-h">Open questions by industry</h2>
     </div>
     <div class="questions">
-      <div class="q"><h3>Utilities</h3><p>Five sites sit in a ten-mile band south of Dallas: Lancaster, Wilmer and Red Oak. What gets built first there, substations or lines?</p></div>
-      <div class="q"><h3>Power companies</h3><p>A Hill County data center wants its own gas turbines and won't sell to the grid. A new grid plant is filed in the same county. Who buys power, and who makes their own?</p></div>
+      <div class="q"><h3>Utilities</h3><p>Five sites sit within 10 miles of each other south of Dallas. What gets built first: substations or lines?</p></div>
+      <div class="q"><h3>Power companies</h3><p>A Hill County data center filed for its own gas turbines and won't sell to the grid. A grid plant is filed in the same county. Who buys power, and who makes it?</p></div>
       <div class="q"><h3>Data center builders</h3><p>Grid hookups are paused for an audit. How many sites will make their own power instead?</p></div>
-      <div class="q"><h3>Engineering firms</h3><p>One Wilmer filing covers 891 backup generators in an area with strict air rules. How much time do permits and generators add?</p></div>
+      <div class="q"><h3>Engineering firms</h3><p>One Wilmer filing covers 891 backup generators under strict air rules. How much time do permits add?</p></div>
     </div>
   </section>
 
@@ -247,10 +247,10 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
     </div>
   </section>
 
-  <section class="about" aria-labelledby="a-h">
-    <h3 id="a-h">About</h3>
-    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (GPA 4.0, May 2027). Before Texas, I interned in substations at Enedis, France's grid operator. I also coordinated projects for industrial clients as an engineering apprentice. I built this map to see how data centers are changing power demand in North Texas.</p>
-    <p>I'm looking for a Spring 2027 internship in energy, in a project or analyst role. I speak French, English and Tamil. Questions and corrections are welcome. <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
+  <section class="about" id="about" aria-labelledby="a-h">
+    <h3 id="a-h">Open to Spring 2027 internships</h3>
+    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (4.0 GPA, May 2027). I interned in substations at Enedis, France's grid operator, and coordinated projects for industrial clients as an engineering apprentice. I built this tracker to follow how data centers change power demand in North Texas.</p>
+    <p>I want a project or analyst role in energy. I speak French, English and Tamil. Corrections welcome too. <a href="mailto:dal665610@utdallas.edu">Email me</a> · <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
   </section>
 </div>
 
@@ -312,16 +312,13 @@ function drawStats() {
   const south = SITES.filter(s => ["Lancaster", "Wilmer", "Red Oak"].includes(s.city)).length;
   const longhorn = SITES.find(s => s.permit === "184454");
   const items = [
-    ["474<small>GW</small>", "<b>Asked of the Texas grid</b> by big users. About 90% are data centers. Approvals paused since Aug 2026.", PAUSE_URL],
-    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>Local sites list a cloud or AI tenant</b> on the state tax list.", COMPTROLLER],
-    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Backup power filed in Wilmer</b>: 891 generators of 3 MW each.", longhorn ? summaryUrl(longhorn) : TCEQ],
-    [`${south}<small>sites</small>`, "<b>Sites south of Dallas</b>: Lancaster, Wilmer and Red Oak.", null]
+    ["474<small>GW</small>", "<b>Asked of the Texas grid</b> by big users, about 90% data centers. Approvals paused since August.", PAUSE_URL],
+    [`${cloud.length}<small>of ${certified.length}</small>`, "<b>List a cloud or AI tenant</b>: Microsoft, Amazon, Google, Oracle and others.", COMPTROLLER],
+    [`${(891 * 3 / 1000).toFixed(1)}<small>GW</small>`, "<b>Backup power at one Wilmer campus</b>: 891 generators, 3 MW each.", longhorn ? summaryUrl(longhorn) : TCEQ],
+    [`${south}<small>sites</small>`, "<b>Within 10 miles</b> south of Dallas: Lancaster, Wilmer, Red Oak.", null]
   ];
   document.getElementById("stats").innerHTML = items.map(([n, t, url]) =>
-    `<div class="stat"><div class="n">${n}</div><p>${t}${url ? ` <a href="${url}" target="_blank" rel="noopener">Filing ↗</a>` : ""}</p></div>`).join("");
-  document.getElementById("thesis").textContent =
-    `${cloud.length} DFW data centers list a cloud or AI tenant. A new campus near Wilmer filed for 891 backup generators.`;
-}
+    `<div class="stat"><div class="n">${n}</div><p>${t}${url ? ` <a href="${url}" target="_blank" rel="noopener">Filing ↗</a>` : ""}</p></div>`).join("");}
 
 /* sites added in the latest update; hidden on the first edition, when everything is new */
 function drawNew() {

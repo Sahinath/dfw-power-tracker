@@ -51,7 +51,8 @@ body {
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
-.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px; display: grid; gap: 48px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-block: 32px 56px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 48px; }
+.wrap > * { min-width: 0; }
 a { color: var(--cloud); text-underline-offset: 2px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 h1, h2, h3 { margin: 0; line-height: 1.15; text-wrap: balance; }
@@ -113,6 +114,7 @@ td { padding: 11px 14px; border-bottom: 1px solid var(--soft); vertical-align: t
 tr.hl td { background: color-mix(in srgb, var(--accent) 12%, transparent); }
 td.site { font-weight: 600; min-width: 200px; }
 td.site span { display: block; font-weight: 400; color: var(--muted); font-size: .82rem; margin-top: 2px; }
+td.site span.approx { display: inline-block; margin-top: 0; }
 td.date { white-space: nowrap; font-variant-numeric: tabular-nums; }
 td.date span { display: block; font-size: .78rem; color: var(--muted); }
 .tag { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
@@ -122,6 +124,18 @@ td.links { white-space: nowrap; font-size: .82rem; }
 td.links a, td.links button { display: block; margin-bottom: 4px; }
 .stat p a { font-size: .82rem; white-space: nowrap; }
 td button.locate { font: 500 .8rem var(--font); background: none; border: 0; color: var(--cloud); cursor: pointer; padding: 0; text-decoration: underline; }
+/* phones: each site becomes a stacked card instead of a wide table row */
+@media (max-width: 640px) {
+  .tablebox { overflow-x: hidden; max-height: 70vh; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { padding: 12px 14px; border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
+  td { padding: 0; border: 0; }
+  td.site { min-width: 0; }
+  td.date span { display: inline; margin-left: 6px; }
+  td.links { white-space: normal; }
+  td.links a, td.links button { display: inline-block; margin: 2px 14px 0 0; }
+}
 
 /* ERCOT */
 .ercot { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; align-items: start; }
@@ -141,6 +155,31 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
 .questions { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px 32px; }
 .q { display: grid; gap: 6px; align-content: start; padding-top: 14px; border-top: 1px solid var(--rule); }
 .q p { font-size: .925rem; color: var(--muted); }
+
+/* findings */
+.findings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 900px) { .findings { grid-template-columns: minmax(0, 1fr); } }
+.finding { background: var(--sheet); border: 1px solid var(--rule); padding: 20px; display: grid; gap: 12px; align-content: start; }
+.finding p { font-size: .925rem; color: var(--muted); }
+.finding p b { color: var(--ink); font-weight: 600; }
+.cols { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; align-items: end; height: 150px; padding-top: 6px; border-bottom: 1px solid var(--rule); }
+.col { display: grid; gap: 4px; justify-items: center; align-content: end; height: 100%; font-size: .78rem; font-variant-numeric: tabular-nums; }
+.col .b { width: 100%; background: var(--enterprise); opacity: .55; min-height: 2px; }
+.col.hot .b { background: var(--accent); opacity: 1; }
+.col.hot .v { font-weight: 700; }
+.col-labels { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; font-size: .75rem; color: var(--muted); text-align: center; margin-top: 6px; line-height: 1.25; }
+.rank { display: grid; gap: 7px; }
+.rank .r { display: grid; grid-template-columns: 92px minmax(0, 1fr) 24px; gap: 10px; align-items: center; font-size: .85rem; }
+.rank .t { height: 12px; background: var(--soft); position: relative; }
+.rank .f { position: absolute; inset: 0 auto 0 0; background: var(--cloud); }
+.rank .r:first-child .f { background: var(--accent); }
+.rank .r:first-child { font-weight: 700; }
+.rank .n { text-align: right; font-variant-numeric: tabular-nums; }
+.power { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.power li { display: grid; gap: 2px; padding-left: 12px; border-left: 3px solid var(--permit); font-size: .9rem; }
+.power li span { color: var(--muted); font-size: .85rem; }
+.cta { display: inline-flex; align-items: center; gap: 8px; font: 600 .95rem var(--font); background: var(--ink); color: var(--sheet); padding: 10px 16px; text-decoration: none; justify-self: start; }
+.cta:hover { opacity: .9; }
 
 /* new this month */
 .newbox { display: grid; gap: 12px; padding: 20px 24px; background: var(--sheet); border: 1px solid var(--rule); border-left: 4px solid var(--accent); }
@@ -165,11 +204,38 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
       <span>Updated <b id="updated">Oct 28, 2026</b></span>
       <span>By <b>Sahinath Saminadane</b></span>
       <span>Updated monthly</span>
-      <a href="#about">Open to Spring 2027 internships</a>
+      <a href="#about">Get the monthly update</a>
     </div>
   </header>
 
   <section aria-label="Key numbers"><div class="stats" id="stats"></div></section>
+
+  <section aria-labelledby="f-h">
+    <div class="head">
+      <h2 id="f-h">What the filings show</h2>
+      <p class="muted">Three patterns in the state records, computed from the site list below.</p>
+    </div>
+    <div class="findings">
+      <article class="finding" aria-labelledby="f1-h">
+        <h3 id="f1-h">The pace is speeding up</h3>
+        <p id="f1-p"></p>
+        <div>
+          <div class="cols" id="f1-cols" role="img" aria-label="Data centers certified for the state tax break, by year"></div>
+          <div class="col-labels" id="f1-labels"></div>
+        </div>
+      </article>
+      <article class="finding" aria-labelledby="f2-h">
+        <h3 id="f2-h">Who is behind the sites</h3>
+        <p id="f2-p"></p>
+        <div class="rank" id="f2-rank"></div>
+      </article>
+      <article class="finding" aria-labelledby="f3-h">
+        <h3 id="f3-h">Some sites plan their own power</h3>
+        <p>Grid hookups for data centers are paused while Texas audits every request. These filings show what developers do meanwhile.</p>
+        <ul class="power" id="f3-list"></ul>
+      </article>
+    </div>
+  </section>
 
   <section id="new" class="newbox" aria-labelledby="new-h" hidden>
     <h2 id="new-h">New since the last update</h2>
@@ -248,9 +314,10 @@ td button.locate { font: 500 .8rem var(--font); background: none; border: 0; col
   </section>
 
   <section class="about" id="about" aria-labelledby="a-h">
-    <h3 id="a-h">Open to Spring 2027 internships</h3>
-    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (4.0 GPA, May 2027). I interned in substations at Enedis, France's grid operator, and coordinated projects for industrial clients as an engineering apprentice. I built this tracker to follow how data centers change power demand in North Texas.</p>
-    <p>I want a project or analyst role in energy. I speak French, English and Tamil. Corrections welcome too. <a href="mailto:dal665610@utdallas.edu">Email me</a> · <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">Connect on LinkedIn</a></p>
+    <h3 id="a-h">Get the monthly update</h3>
+    <p>Each month I check the new TCEQ and Comptroller filings and write down what changed in DFW. Email me and I'll send you the short summary. Corrections are welcome too.</p>
+    <a class="cta" href="mailto:dal665610@utdallas.edu?subject=DFW%20data%20center%20tracker%20-%20monthly%20update">Email me for the monthly update</a>
+    <p>I'm <b>Sahinath Saminadane</b>, an M.S. Energy Management student at UT Dallas (4.0 GPA, May 2027). I interned in substations at Enedis, France's grid operator, and coordinated projects for industrial clients as an engineering apprentice. I'm looking for a program management or analyst role in energy or data centers, full-time from June 2027. I speak French, English and Tamil. Email: <b>dal665610@utdallas.edu</b> · <a href="https://www.linkedin.com/in/sahinath-saminadane" target="_blank" rel="noopener">LinkedIn</a></p>
   </section>
 </div>
 
@@ -320,6 +387,54 @@ function drawStats() {
   document.getElementById("stats").innerHTML = items.map(([n, t, url]) =>
     `<div class="stat"><div class="n">${n}</div><p>${t}${url ? ` <a href="${url}" target="_blank" rel="noopener">Filing ↗</a>` : ""}</p></div>`).join("");}
 
+/* findings, computed from the register so they stay true after each monthly update */
+function drawFindings() {
+  const certified = SITES.filter(s => s.src === "comptroller");
+  const year = s => +s.date.slice(0, 4);
+  const thisYear = Math.max(...certified.map(year));
+  const first = thisYear - 4;
+
+  // 1. certifications per year
+  const buckets = [{ k: `Before ${first}`, v: certified.filter(s => year(s) < first).length }];
+  for (let y = first; y <= thisYear; y++) buckets.push({ k: String(y), v: certified.filter(s => year(s) === y).length, hot: y >= thisYear - 1 });
+  const recent = buckets.filter(b => b.hot).reduce((a, b) => a + b.v, 0);
+  const max = Math.max(...buckets.map(b => b.v));
+  const lastCert = certified.reduce((m, s) => (s.date > m ? s.date : m), "");
+  document.getElementById("f1-p").innerHTML =
+    `<b>${recent} of the ${certified.length} certified sites</b> got their state tax break in ${thisYear - 1} or ${thisYear}. ${thisYear} counts sites through ${fmtDate(lastCert)}.`;
+  document.getElementById("f1-cols").innerHTML = buckets.map(b =>
+    `<div class="col${b.hot ? " hot" : ""}"><span class="v">${b.v}</span><span class="b" style="height:${(b.v / max * 110).toFixed(0)}px"></span></div>`).join("");
+  document.getElementById("f1-labels").innerHTML = buckets.map(b => `<span>${b.k}</span>`).join("");
+
+  // 2. tenants with the most sites (named companies only, not project LLCs)
+  const named = certified.filter(s => !/LLC|L\.P\.|LP$/.test(s.tenant));
+  const counts = {};
+  named.forEach(s => (counts[s.tenant] = (counts[s.tenant] || 0) + 1));
+  const top = Object.entries(counts).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 6);
+  const [leader, n] = top[0];
+  const days = {};
+  certified.filter(s => s.tenant === leader).forEach(s => (days[s.date] = (days[s.date] || 0) + 1));
+  const [bigDay, sameDay] = Object.entries(days).sort((a, b) => b[1] - a[1])[0];
+  const ai = new Set(certified.filter(s => ["CoreWeave", "Lambda"].includes(s.tenant)).map(s => s.tenant));
+  document.getElementById("f2-p").innerHTML =
+    `<b>${esc(leader)} leads with ${n} sites.</b>` +
+    (sameDay >= 3 ? ` ${sameDay} of them were certified on the same day, ${fmtDate(bigDay)}.` : "") +
+    (ai.size ? ` AI cloud newcomers (${[...ai].join(", ")}) now appear too.` : "");
+  document.getElementById("f2-rank").innerHTML = top.map(([t, c]) =>
+    `<div class="r"><span>${esc(t)}</span><span class="t"><span class="f" style="width:${(c / n * 100).toFixed(0)}%"></span></span><span class="n">${c}</span></div>`).join("");
+
+  // 3. power filings
+  const items = [];
+  const longhorn = SITES.find(s => s.permit === "184454");
+  if (longhorn) items.push([`${esc(longhorn.name)}, ${esc(longhorn.city)}`, `891 backup generators of 3 MW, about ${(891 * 3 / 1000).toFixed(1)} GW. Filed ${fmtDate(longhorn.date)}.`, summaryUrl(longhorn)]);
+  const nexus = SITES.find(s => s.permit === "183046");
+  if (nexus) items.push([`${esc(nexus.name)}`, `Its own gas turbines on site; the filing says it won't sell power to the grid. Filed ${fmtDate(nexus.date)}.`, summaryUrl(nexus)]);
+  const nrg = SITES.find(s => s.permit === "183570");
+  if (nrg) items.push([`${esc(nrg.name)}, Hill County`, `A new grid gas plant filed in the same county a few weeks later. Filed ${fmtDate(nrg.date)}.`, summaryUrl(nrg)]);
+  document.getElementById("f3-list").innerHTML = items.map(([t, d, u]) =>
+    `<li><b>${t}</b><span>${d} <a href="${u}" target="_blank" rel="noopener">Filing ↗</a></span></li>`).join("");
+}
+
 /* sites added in the latest update; hidden on the first edition, when everything is new */
 function drawNew() {
   const latest = SITES.reduce((m, s) => (s.added > m ? s.added : m), "");
@@ -373,7 +488,9 @@ function initMap() {
   const bundled = /claude/.test(location.hostname);
   const bounds = L.latLngBounds([31.30, -98.70], [33.80, -95.40]);
   const maxZoom = bundled ? 10 : 16;
-  map = L.map("map", { zoomSnap: 0.5, minZoom: 8, maxZoom, maxBounds: bounds, scrollWheelZoom: false });
+  // on phones, one finger scrolls the page instead of dragging the map; the + / - buttons still zoom
+  const touch = matchMedia("(pointer: coarse)").matches;
+  map = L.map("map", { zoomSnap: 0.5, minZoom: 8, maxZoom, maxBounds: bounds, scrollWheelZoom: false, dragging: !touch, tap: false });
   L.tileLayer(bundled ? "tiles/{z}/{x}/{y}.png" : "https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     minZoom: 8, maxZoom, bounds,
     attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'
@@ -471,6 +588,7 @@ async function start() {
     return;
   }
   drawStats();
+  drawFindings();
   drawNew();
   initMap();
   drawLegend();
